@@ -1,0 +1,72 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/soapexample/soap"
+           targetNamespace="http://example.com/soapexample/soap"
+           elementFormDefault="qualified">
+
+    <xs:element name="createReviewRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="review" type="tns:reviewSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createReviewResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="review" type="tns:reviewSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateReviewRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="review" type="tns:reviewSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateReviewResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="review" type="tns:reviewSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteReviewRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reviewId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteReviewResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reviewId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:complexType name="reviewSoap">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" nillable="true"/>
+            <xs:element name="content" type="xs:string"/>
+            <xs:element name="creationDate" type="xs:date"/>
+            <xs:element name="movieId" type="xs:long"/>
+            <xs:sequence maxOccurs="unbounded">
+                <xs:element name="likedMovies" type="xs:long"/>
+            </xs:sequence>
+            <xs:element name="author" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+</xs:schema>
